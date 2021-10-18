@@ -12,7 +12,7 @@
         <nav>
             <a href="index.php">Inicio</a>
             <a href="#">Alta empleado</a>
-            <a href="modificacionEmpleado.php">Modificación de empleado</a>
+            <a href="listaEmpleados.php">Modificación de empleado</a>
         </nav>
         <form action="#" method="post">
             <label for="">DNI:</label>

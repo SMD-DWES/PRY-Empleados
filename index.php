@@ -12,7 +12,7 @@
         <nav>
             <a href="#">Inicio</a>
             <a href="altaEmpleado.php">Alta empleado</a>
-            <a href="modificacionEmpleado.php">Modificación de empleado</a>
+            <a href="listaEmpleados.php">Modificación de empleado</a>
         </nav>
     </body>
 </html>

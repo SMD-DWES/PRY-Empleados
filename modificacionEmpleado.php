@@ -14,8 +14,6 @@
             <a href="altaEmpleado.php">Alta empleado</a>
             <a href="#">Modificación de empleado</a>
         </nav>
-
-        
 <!--
         <form action="#" method="post">
             <label for="">DNI:</label>
@@ -34,7 +32,7 @@
 <?php 
     require("config.php");
 
-    //hacer por paso a url
+    //Mostrar empleados con una tabla.
 
     $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
 
@@ -42,43 +40,62 @@
 
     $result = $mysql->query($sql);
 
+    //Creamos el select con un valor ya por defecto
+
+    echo 
+    '
+    <form action="#" method="post">
+        <select name="listaEmpleados" id="">
+            <option value="default">Elige un empleado</option>
+    ';
+
     //Si la consulta devuelve más de una fila
     if($result->num_rows>0) {
         //Hacemos un fetch de las filas
         while($fila = $result->fetch_array(MYSQLI_ASSOC)) {
             //Rellenamos formulario
-            echo 
-            '
-            <select name="listaEmpleados" id="">
-                <option value="default">Elige un empleado</option>
-            ';
-            echo '<option value='.$fila["DNI"]."'>".$fila["Nombre"]."</option>";
-            echo '</select>';
+            echo '<option value="'.$fila["DNI"].'">'.$fila["Nombre"]."</option>";
         }
     }
 
+    echo '</select>';
 
-    if(isset($_POST["enviar"])) {
+    echo 
+    '
+        <input type="submit" value="Seleccionar" name="seleccionar[]"></input>
+    </form>
+    ';
 
 
+    if(isset($_POST["seleccionar"])) {
 
         //Selección del select
-        if(!empty($_POST["listaEmpleados"])){
-            echo "Has seleccionado el empleado: ".$_POST["listaEmpleados"];
+        if(!empty($_POST["listaEmpleados"]) && $_POST["listaEmpleados"] != "default"){
+            echo "Has seleccionado el empleado con DNI: ".$_POST["listaEmpleados"];
+
             //Llamada a BD
 
-
-
-            //Vars
-            $dni = $_POST["dni"];
-            $nombre = $_POST["nombre"];
-            $correo = $_POST["correo"];
-            $tlfno = $_POST["telefono"];
-
-
-            $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'","'.$correo.'","'.$tlfno.'")';
+            $sql = 'SELECT * FROM empleados WHERE DNI="'.$_POST["listaEmpleados"].'"';
 
             if($mysql->query($sql)) {
+
+                echo 
+                '
+                <form action="#" method="post">
+                    <label for="">DNI:</label>
+                ';
+                echo '
+                    <input type="text" name="dni" id="">
+                    <label for="">Nombre:</label>
+                    <input type="text" name="nombre" id="">
+                    <label for="">Correo:</label>
+                    <input type="text" name="correo" id="">
+                    <label for="">Teléfono:</label>
+                    <input type="text" name="telefono" id="">
+                    <input type="submit" value="Enviar" name="enviar[]">
+                </form>
+                ';
+
                 echo 'Correcto';
             } else {
                 echo 'Hubo un error'.$mysql->error;

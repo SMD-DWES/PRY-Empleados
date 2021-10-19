@@ -61,7 +61,7 @@
             echo '
             <td>
                 <a href="editarEmpleado.php?id='.$fila["IdEmpleado"].'">Editar</a>
-                <a href="editarEmpleado.php?id='.$fila["IdEmpleado"].'">Borrar</a>
+                <a href="borrarUser.php?id='.$fila["IdEmpleado"].'">Borrar</a>
             </td>';
             echo '</tr>';
         }

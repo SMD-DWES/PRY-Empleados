@@ -8,7 +8,7 @@
         <title>Inicio</title>
     </head>
     <body>
-        <h1>Panel de administración - EMPRESA</h1>
+        <h1>Panel de administración - INICIO</h1>
         <nav>
             <a href="#">Inicio</a>
             <a href="altaEmpleado.php">Alta empleado</a>

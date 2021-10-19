@@ -36,22 +36,24 @@
         $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
 
 
-
-        //Vars
-        $dni = $_POST["dni"];
-        $nombre = $_POST["nombre"];
-        $correo = $_POST["correo"];
-        $tlfno = $_POST["telefono"];
-
-
-        $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'","'.$correo.'","'.$tlfno.'")';
-
-        if($mysql->query($sql)) {
-            echo 'Correcto';
+        if(empty($_POST["DNI"]) && empty($_POST["nombre"]) && empty($_POST["telefono"]) ) {
+            echo "[ERROR] Hay campos obligatorios que están vacios";
         } else {
-            echo 'Hubo un error'.$mysql->error;
-        }
+            //Vars
+            $dni = $_POST["dni"];
+            $nombre = $_POST["nombre"];
+            $correo = $_POST["correo"];
+            $tlfno = $_POST["telefono"];
 
+
+            $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'","'.$correo.'","'.$tlfno.'")';
+
+            if($mysql->query($sql)) {
+                echo 'Correcto';
+            } else {
+                echo 'Hubo un error'.$mysql->error;
+            }
+        }
     }
 
 ?>

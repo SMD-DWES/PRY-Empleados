@@ -23,11 +23,20 @@
 
     $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
 
+    //Búsquedas
+    echo 'Búsqueda de empleado por DNI:';
+    echo '<input type="text"></input>';
+    echo '<input type="submit" value="Buscar"></input>';
+
+
     $sql = "SELECT * FROM empleados";
 
     $result = $mysql->query($sql);
 
+    
 
+
+    //Tabla con contenido
     echo '<table>';
     echo '<tr>';
     echo '<th>DNI</th>';
@@ -45,8 +54,8 @@
             echo '<td>'.$fila["Tlfno"].'</td>';
             echo '
             <td>
-                <a href="procesos/editar.php?id="'.$fila["DNI"].'">Editar</a>
-                <a href="procesos/borrar.php?id="'.$fila["DNI"].'">Borrar</a>
+                <a href="procesos/editar.php?id='.$fila["IdEmpleado"].'">Editar</a>
+                <a href="procesos/borrar.php?id='.$fila["IdEmpleado"].'">Borrar</a>
             </td>';
             echo '</tr>';
         }

@@ -2,3 +2,24 @@ body {
 
 }
 
+nav {
+    margin: 10px;
+    background-color: orange;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    padding-left: 30px;
+    color: white;
+}
+nav a:hover {
+    color: black;
+}
+
+
+table, td, th {
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;
+}

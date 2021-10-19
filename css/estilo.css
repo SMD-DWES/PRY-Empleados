@@ -58,6 +58,22 @@ td a {
 td a:hover {
     color: orange;
 }
+
+a button#editar {
+    background-color: #4CAF50;
+    border-radius: 15px;
+    cursor: pointer; 
+    color: white;
+}
+
+a button#borrar {
+    background-color: #cc0d0d;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer; 
+
+}
+
 /*
     ===========================
             FORMS

@@ -13,8 +13,7 @@
 
 
         //Llamamos a la función borrar, que borrará la fila del DNI pasado.
-        echo 'DEBUG: '. $db->borrar($_GET["id"]);
-        echo 'DEBUG2: '. $_GET["id"];
+        //echo $db->borrar($_GET["id"]);
 
         //Si se terminó de borrar vuelve al index.
         //header("Location: ../listaEmpleados.php");

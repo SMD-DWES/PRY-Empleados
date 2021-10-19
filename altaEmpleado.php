@@ -28,14 +28,20 @@
     </body>
 </html>
 <?php 
+    /*
+        Autor: Sergio Matamoros Delgado
+        Fecha: 19/10/2021
+
+        Descripción: Da de alta un nuevo empleado.
+    */
     require("config.php");
 
     if(isset($_POST["enviar"])) {
 
-        //Llamada a BD
         $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
 
 
+        //Comprueba que los campos obligatorios estén rellenos.
         if(empty($_POST["DNI"]) && empty($_POST["nombre"]) && empty($_POST["telefono"]) ) {
             echo "[ERROR] Hay campos obligatorios que están vacios";
         } else {

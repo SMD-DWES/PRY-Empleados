@@ -17,6 +17,12 @@
     </body>
 </html>
 <?php 
+    /*
+        Autor: Sergio Matamoros Delgado
+        Fecha: 19/10/2021
+
+        Descripción: Lista en una tabla todos los empleados disponibles.
+    */
     require("config.php");
 
     //Mostrar empleados con una tabla.
@@ -54,12 +60,14 @@
             echo '<td>'.$fila["Tlfno"].'</td>';
             echo '
             <td>
-                <a href="procesos/editar.php?id='.$fila["IdEmpleado"].'">Editar</a>
-                <a href="procesos/borrar.php?id='.$fila["IdEmpleado"].'">Borrar</a>
+                <a href="editarEmpleado.php?id='.$fila["IdEmpleado"].'">Editar</a>
+                <a href="editarEmpleado.php?id='.$fila["IdEmpleado"].'">Borrar</a>
             </td>';
             echo '</tr>';
         }
     }
     echo '</table>';
+
+    
 
 ?>

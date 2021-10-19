@@ -8,9 +8,9 @@
     require "../config.php";
     class Database {
 
-        private $mysql;
+        private $mysql = null;
 
-        function __constructor() {
+        function __construct() {
             $this->mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
         }
 
@@ -19,9 +19,6 @@
             $sql = "DELETE FROM empleados WHERE IdEmpleado=".$id;
 
             //$this->consulta($sql);
-
-            
-            
 
             if($this->mysql->query($sql))
                 return 'Correcto';
@@ -32,12 +29,19 @@
 
         //Hace un update de los campos, si es correcto devuelve correcto
         //Si no es correcto devolverá el error generado.
-        function update($dni, $nombre, $correo, $tlfno) {
-            $sql = "UPDATE empleados SET DNI='".$dni.'", Nombre="'.$nombre.'", Correo="'.$correo.'", Tlfno="'.$tlfno.'"';
+        function update($id, $dni, $nombre, $correo, $tlfno) {
+            $sql = "UPDATE empleados SET DNI='$dni', Nombre='$nombre', Correo='$correo', Tlfno='$tlfno' WHERE IdEmpleado=$id";
 
             if($this->mysql->query($sql))
                 return 'Correcto';
             return $this->mysql->error;
+        }
+
+        //Devuelve la consulta
+        function select() {
+            $sql = "SELECT * from empleados";
+
+            return $this->mysql->query($sql);
         }
     }
 

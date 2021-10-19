@@ -37,12 +37,7 @@
             return $this->mysql->error;
         }
 
-        //Devuelve la consulta
-        function select() {
-            $sql = "SELECT * from empleados";
-
-            return $this->mysql->query($sql);
-        }
+        
     }
 
 ?>

@@ -28,9 +28,10 @@
         //Actualiza en B.D, si hubo un error lo imprimirá.
         echo $db->update($id,$dni,$nombre,$correo,$tlf);
 
-        //Reedirige a la lista principal nuevamente.
+        //Reedirige a la lista principal nuevamente. [EN HOST NO REDIRIGE CORRECTAMENTE]
+        flush();
         header("Location: ../listaEmpleados.php");
-
+        die();
 
     }
 ?>

@@ -28,15 +28,23 @@
     //Mostrar empleados con una tabla.
 
     $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
+    $sql = null;
 
     //Búsquedas
     echo 'Búsqueda de empleado por DNI:';
-    echo '<input type="text"></input>';
-    echo '<input type="submit" value="Buscar"></input>';
+    echo 
+    '<form action="#" method="post">
+        <input type="text" name="busquedaDNI"></input>
+        <input type="submit" value="Buscar" name="buscar"></input>
+        <input type="submit" value="Resetear" name="reset"></input>
+    </form>';
+    
 
 
-    $sql = "SELECT * FROM empleados";
-
+    if(isset($_POST["buscar"]))
+        $sql = "SELECT * FROM empleados WHERE DNI LIKE'".$_POST["busquedaDNI"]."%'";
+    else
+        $sql = "SELECT * FROM empleados";
     $result = $mysql->query($sql);
 
     

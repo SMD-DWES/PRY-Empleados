@@ -1,0 +1,72 @@
+
+body {
+    width: 97.2%;/*1400px;*/
+    height: 740px; /* Hay que quitar los pixeles de la altura. */
+
+    font-size: 18px;
+    margin: 10px;
+}
+nav {
+    min-height: 8.10%; /*60px*/
+    background-color: #73ffdf;
+}
+
+/*
+    ===========================
+            ASIDE
+    ===========================
+*/
+aside {
+    min-width: 12.85%;/*180px;*/
+    min-height: 83.78%;/*620px;*/
+    background-color: #343331;
+
+    padding-left: 1.42%;/*20px;*/
+
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    float: left;
+}
+
+aside a {
+    color: white;
+    padding-bottom: 20px;
+
+    position: relative;
+    transition: 0.5s;
+
+}
+aside a:hover {
+    padding-left: 5px;
+
+    font-weight: bold;
+}
+
+/* Inserta el texto después del elemento */
+aside a:before {
+    content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
+    position: absolute;
+    left: -10px;
+    transition: 0.5s;
+}
+
+main {
+    padding: 0 1.42% 0 1.42%;/*0 20px 0 20px;*/
+    min-width: 82.85714285714286%;/*1160px;*/
+    min-height: 83.78%;/*620px;*/
+
+    color: black;
+
+    float: left;
+    background-color: #e3e3e3;
+
+}
+
+footer {
+    clear: left;
+    min-height: 8.10%;/*60px;*/
+    background-color: #FFF2CC;
+    
+}

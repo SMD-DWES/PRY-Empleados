@@ -5,44 +5,6 @@ body {
 
 /*
     ===========================
-            NAVEGACIÓN
-    ===========================
-*/
-
-nav {
-    margin: 10px;
-    background-color: orange;
-    padding: 10px;
-    text-align: center;
-    
-}
-
-nav a {
-    padding-left: 30px;
-    color: white;
-
-    position: relative;
-    transition: 0.5s;
-
-}
-nav a:hover {
-    color: black;
-    padding-right: 25px;
-
-    font-weight: bold;
-}
-
-/* Inserta el texto después del elemento */
-nav a:before {
-    content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
-    position: absolute;
-    right: -20px;
-    transition: 0.5s;
-}
-
-
-/*
-    ===========================
             TABLA
     ===========================
 */
@@ -50,11 +12,9 @@ table, td, th {
     margin: auto;
     border: 2px solid black;
     border-collapse: collapse;
+    color: black;
 }
 
-td a {
-    color: white;
-}
 td a:hover {
     color: orange;
 }
@@ -85,4 +45,15 @@ form input[type=text], select {
     margin: 8px;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+/*  Borrado  */
+#borrado {
+    background-color: black;
+    width: 400px;
+    height: 100px;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+    color: white;
 }

@@ -5,15 +5,27 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/general.css">
         <title>Inicio</title>
     </head>
     <body>
         <h1>Modificación de empleado</h1>
         <nav>
+            
+        </nav>
+        <aside>
             <a href="index.php">Inicio</a>
             <a href="altaEmpleado.php">Alta empleado</a>
             <a href="listaEmpleados.php">Modificación de empleado</a>
-        </nav>
+        </aside>
+        <main>
+            <?php
+                modificar();
+            ?>
+        </main>
+        <footer>
+
+        </footer>
     </body>
 </html>
 
@@ -25,37 +37,39 @@
         Descripción: Imprime en pantalla un formulario con los datos del empleado.
     */
 
-    //Importamos libreria
-    require "config.php";
+    function modificar() {
+        //Importamos libreria
+        require "config.php";
 
-    if(isset($_GET["id"])) {
-        $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
-    
-        $sql = "SELECT * FROM empleados WHERE IdEmpleado=".$_GET["id"];
-    
-        $result = $mysql->query($sql);
-    
-
-        $fila = $result->fetch_array(MYSQLI_ASSOC);
-
-        //Formulario con datos.
-        echo 
-        "
-        <form action='procesos/editar.php?id=$_GET[id]' method='post'>
-            <label for=''>DNI:</label>
-            <input type='text' name='dni' id='' value='$fila[DNI]'>
-            <label for=''>Nombre:</label>
-            <input type='text' name='nombre' id='' value='$fila[Nombre]'>
-            <label for=''>Correo:</label>
-            <input type='text' name='correo' id='' value='$fila[Correo]'>
-            <label for=''>Teléfono:</label>
-            <input type='text' name='telefono' id='' value='$fila[Tlfno]'>
-            <input type='submit' value='Actualizar' name='actualizar[]'>
-        </form>
-        ";
+        if(isset($_GET["id"])) {
+            $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
+        
+            $sql = "SELECT * FROM empleados WHERE IdEmpleado=".$_GET["id"];
+        
+            $result = $mysql->query($sql);
         
 
-        //$db->update($_GET["id"],$_GET["nombre"],$_GET["correo"],$_GET["tlfno"]);
+            $fila = $result->fetch_array(MYSQLI_ASSOC);
 
+            //Formulario con datos.
+            echo 
+            "
+            <form action='procesos/editar.php?id=$_GET[id]' method='post'>
+                <label for=''>DNI:</label>
+                <input type='text' name='dni' id='' value='$fila[DNI]'>
+                <label for=''>Nombre:</label>
+                <input type='text' name='nombre' id='' value='$fila[Nombre]'>
+                <label for=''>Correo:</label>
+                <input type='text' name='correo' id='' value='$fila[Correo]'>
+                <label for=''>Teléfono:</label>
+                <input type='text' name='telefono' id='' value='$fila[Tlfno]'>
+                <input type='submit' value='Actualizar' name='actualizar[]'>
+            </form>
+            ";
+            
+
+            //$db->update($_GET["id"],$_GET["nombre"],$_GET["correo"],$_GET["tlfno"]);
+
+        }
     }
 ?>

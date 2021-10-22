@@ -61,11 +61,16 @@
                 //Vars
                 $dni = $_POST["dni"];
                 $nombre = $_POST["nombre"];
-                $correo = $_POST["correo"];
+
+                $mail = "'".$_POST["correo"]."'";
+
+                $correo = (empty($_POST["correo"]) == 1) ? 'NULL' : $mail;
+
+                
                 $tlfno = $_POST["telefono"];
 
 
-                $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'","'.$correo.'","'.$tlfno.'")';
+                $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'",'.$correo.',"'.$tlfno.'")';
 
                 if($mysql->query($sql)) {
                     echo 'Correcto';

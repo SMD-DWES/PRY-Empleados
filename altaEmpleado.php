@@ -1,3 +1,35 @@
+<?php 
+    /*
+        Autor: Sergio Matamoros Delgado
+        Fecha: 19/10/2021
+
+        Descripción: Da de alta un nuevo empleado.
+    */
+    require_once "cuerpoHtml.php";
+
+    function send() {
+        require_once "clases/dataBase.php";
+
+        if(isset($_POST["enviar"])) {
+
+            //Comprueba que los campos obligatorios estén rellenos.
+            if(empty($_POST["DNI"]) && empty($_POST["nombre"]) && empty($_POST["telefono"]) ) {
+                echo "[ERROR] Hay campos obligatorios que están vacios";
+            } else {
+                $db = new Database();
+                
+                $dni = $_POST["dni"];
+                $nombre = $_POST["nombre"];
+                $correo = (empty($_POST["correo"]) == 1) ? 'NULL' : $mail;
+                $tlf = $_POST["telefono"];
+
+                $db->aniadirEmpleado($dni,$nombre,$correo,$tlf);
+               
+            }
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -11,12 +43,14 @@
     <body>
         <h1>Alta de empleado</h1>
         <nav>
-           
+           <?php
+                nav();
+           ?>
         </nav>
         <aside>
-            <a href="index.php">Inicio</a>
-            <a href="#">Alta empleado</a>
-            <a href="listaEmpleados.php">Modificación de empleado</a>
+            <?php
+                aside();
+            ?>
         </aside>
         <main>
             <form action="#" method="post">
@@ -35,50 +69,9 @@
             ?>
         </main>
         <footer>
-
+            <?php
+                footer();
+            ?>
         </footer>
     </body>
 </html>
-<?php 
-    /*
-        Autor: Sergio Matamoros Delgado
-        Fecha: 19/10/2021
-
-        Descripción: Da de alta un nuevo empleado.
-    */
-    function send() {
-        require("config.php");
-
-        if(isset($_POST["enviar"])) {
-
-            $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
-
-
-            //Comprueba que los campos obligatorios estén rellenos.
-            if(empty($_POST["DNI"]) && empty($_POST["nombre"]) && empty($_POST["telefono"]) ) {
-                echo "[ERROR] Hay campos obligatorios que están vacios";
-            } else {
-                //Vars
-                $dni = $_POST["dni"];
-                $nombre = $_POST["nombre"];
-
-                $mail = "'".$_POST["correo"]."'";
-
-                $correo = (empty($_POST["correo"]) == 1) ? 'NULL' : $mail;
-
-                
-                $tlfno = $_POST["telefono"];
-
-
-                $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'",'.$correo.',"'.$tlfno.'")';
-
-                if($mysql->query($sql)) {
-                    echo 'Correcto';
-                } else {
-                    echo 'Hubo un error'.$mysql->error;
-                }
-            }
-        }
-    }
-
-?>

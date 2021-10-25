@@ -7,7 +7,8 @@
     */
 
     //Importamos libreria
-    require "../clases/dataBase.php";
+    require_once "config.php";
+    require_once DIRECTORIO."clases/dataBase.php";
 
     if(isset($_POST["actualizar"])) {
 
@@ -28,10 +29,10 @@
         //Actualiza en B.D, si hubo un error lo imprimirá.
         echo $db->update($id,$dni,$nombre,$correo,$tlf);
 
+        $db->cerrarConex();
+
         //Reedirige a la lista principal nuevamente. [EN HOST NO REDIRIGE CORRECTAMENTE]
-        flush();
         header("Location: ../listaEmpleados.php");
-        die();
 
     }
 ?>

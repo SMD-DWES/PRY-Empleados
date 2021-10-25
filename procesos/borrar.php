@@ -5,8 +5,8 @@
 
         Descripción: Borra un usuario pasado por url.
     */
-
-    require "../clases/dataBase.php";
+    require_once "../config.php";
+    require DIRECTORIO."\clases\dataBase.php";
 
     if(isset($_GET["id"])) {
 

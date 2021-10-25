@@ -1,3 +1,6 @@
+<?php
+    require "cuerpoHtml.php";
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -11,18 +14,22 @@
     <body>
         <h1>Panel de administración - INICIO</h1>
         <nav>
-            NAV
+            <?php
+                nav();
+            ?>
         </nav>
         <aside>
-            <a href="#">Inicio</a>
-            <a href="altaEmpleado.php">Alta empleado</a>
-            <a href="listaEmpleados.php">Modificación de empleado</a>
+            <?php
+                aside();
+            ?>
         </aside>
         <main>
             <h2>Panel principal.</h2>
         </main>
         <footer>
-
+            <?php
+                footer();
+            ?>
         </footer>
     </body>
 </html>

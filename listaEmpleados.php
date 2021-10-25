@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilo.css">
-        <link rel="stylesheet" href="css/general.css">
-        <title>Inicio</title>
-    </head>
-    <body>
-        <h1>Modificación de empleado</h1>
-        <nav>
-            
-        </nav>
-        <aside>
-            <a href="index.php">Inicio</a>
-            <a href="altaEmpleado.php">Alta empleado</a>
-            <a href="#">Modificación de empleado</a>
-        </aside>
-        <main>
-            <?php
-                listadoDatos();
-            ?>
-        </main>
-        <footer>
-
-        </footer>
-    </body>
-</html>
 <?php 
     /*
         Autor: Sergio Matamoros Delgado
@@ -35,6 +5,8 @@
 
         Descripción: Lista en una tabla todos los empleados disponibles.
     */
+
+    require "cuerpoHtml.php";
 
     function listadoDatos() {
         
@@ -92,5 +64,38 @@
         echo '</table>';
 
     }
-
 ?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/general.css">
+        <title>Inicio</title>
+    </head>
+    <body>
+        <h1>Modificación de empleado</h1>
+        <nav>
+            <?php
+                nav();
+            ?>
+        </nav>
+        <aside>
+            <?php
+                aside();
+            ?>
+        </aside>
+        <main>
+            <?php
+                listadoDatos();
+            ?>
+        </main>
+        <footer>
+            <?php
+                footer();
+            ?>
+        </footer>
+    </body>
+</html>

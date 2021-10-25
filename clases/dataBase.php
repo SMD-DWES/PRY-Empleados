@@ -5,17 +5,26 @@
 
         Descripción: Clase de consultas de bases de datos.
     */
-    require "../config.php";
-    class Database {
+    require __DIR__."\metodosBd.php";
+    class Database extends MetodosBd{
 
         private $mysql = null;
+        private $metodos = null;
 
         function __construct() {
-            $this->mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
+            //$this->metodos = new MetodosBd();
+
+            $this->mysql = $this->iniciar();
         }
 
-        function aniadirEmpleado() {
+        function aniadirEmpleado($dni,$nombre,$correo,$tlfno) {
             
+            $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'",'.$correo.',"'.$tlfno.'")';
+            if($this->query($sql)) {
+                echo 'Correcto';
+            } else {
+                echo 'Hubo un error'.$this->mysql->error;
+            }
         }
 
         //Devuelve si hubo un error, si no, unicamente borra la fila.

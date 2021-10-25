@@ -83,8 +83,8 @@
                 echo '<td>'.$fila["Tlfno"].'</td>';
                 echo '
                 <td>
-                    <a href="editarEmpleado.php?id='.$fila["IdEmpleado"].'"><button id="editar">Editar</button></a>
-                    <a href="borrarUser.php?id='.$fila["IdEmpleado"].'"><button id="borrar">Borrar</button></a>
+                    <a href="procesos/redireccion.php?op=e&id='.$fila["IdEmpleado"].'"><button id="editar">Editar</button></a>
+                    <a href="procesos/redireccion.php?op=b&id='.$fila["IdEmpleado"].'"><button id="borrar">Borrar</button></a>
                 </td>';
                 echo '</tr>';
             }

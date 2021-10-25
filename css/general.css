@@ -5,9 +5,10 @@ body {
     width: 97.2%;/*1400px;*/
     height: 740px; /* Hay que quitar los pixeles de la altura. */
 
-    font-size: 18px;
+    font-size: 15px;
     margin: 10px;
 }
+
 nav {
     min-height: 8.10%; /*60px*/
     background-color: #73ffdf;

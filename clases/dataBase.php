@@ -14,6 +14,10 @@
             $this->mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
         }
 
+        function aniadirEmpleado() {
+            
+        }
+
         //Devuelve si hubo un error, si no, unicamente borra la fila.
         function borrar($id) {
             $sql = "DELETE FROM empleados WHERE IdEmpleado=".$id;

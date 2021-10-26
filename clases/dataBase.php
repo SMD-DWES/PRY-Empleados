@@ -34,14 +34,11 @@
 
             //$this->consulta($sql);
 
-            $this->cerrarConex();
-
-
             if($this->mysql->query($sql))
-                return 'Correcto';
-            return $this->mysql->error;
+                echo 'Correcto';
+            echo $this->mysql->error;
 
-
+            $this->cerrarConex();
         }
 
         //Hace un update de los campos, si es correcto devuelve correcto
@@ -53,8 +50,5 @@
                 return 'Correcto';
             return $this->mysql->error;
         }
-
-        
     }
-
 ?>

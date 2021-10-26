@@ -42,16 +42,10 @@
     </head>
     <body>
         <h1>Alta de empleado</h1>
-        <nav>
            <?php
                 nav();
-           ?>
-        </nav>
-        <aside>
-            <?php
                 aside();
             ?>
-        </aside>
         <main>
             <form action="#" method="post">
                 <label for="">DNI:</label>
@@ -68,10 +62,8 @@
                 send();
             ?>
         </main>
-        <footer>
-            <?php
-                footer();
-            ?>
-        </footer>
+        <?php
+            footer();
+        ?>
     </body>
 </html>

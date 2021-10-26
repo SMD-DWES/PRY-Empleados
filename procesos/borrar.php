@@ -5,8 +5,7 @@
 
         Descripción: Borra un usuario pasado por url.
     */
-    require_once "../config.php";
-    require DIRECTORIO."\clases\dataBase.php";
+    require __DIR__."/../clases/dataBase.php";
 
     if(isset($_GET["id"])) {
 
@@ -15,7 +14,7 @@
         $db = new Database();
 
         //Llamamos a la función borrar, que borrará la fila del DNI pasado.
-        echo $db->borrar($_GET["id"]);
+        $db->borrar($_GET["id"]);
 
         //Si se terminó de borrar vuelve al index, y sino, pos tambien.
         header("Location: ../listaEmpleados.php");

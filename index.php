@@ -13,23 +13,15 @@
     </head>
     <body>
         <h1>Panel de administración - INICIO</h1>
-        <nav>
-            <?php
-                nav();
-            ?>
-        </nav>
-        <aside>
-            <?php
-                aside();
-            ?>
-        </aside>
+        <?php
+            nav();
+            aside();
+        ?>
         <main>
             <h2>Panel principal.</h2>
         </main>
-        <footer>
-            <?php
-                footer();
-            ?>
-        </footer>
+        <?php
+            footer();
+        ?>
     </body>
 </html>

@@ -77,25 +77,17 @@
     </head>
     <body>
         <h1>Modificación de empleado</h1>
-        <nav>
-            <?php
-                nav();
-            ?>
-        </nav>
-        <aside>
-            <?php
-                aside();
-            ?>
-        </aside>
+        <?php
+            nav();
+            aside();
+        ?>
         <main>
             <?php
                 listadoDatos();
             ?>
         </main>
-        <footer>
-            <?php
-                footer();
-            ?>
-        </footer>
+        <?php
+            footer();
+        ?>
     </body>
 </html>

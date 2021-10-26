@@ -7,7 +7,7 @@
     */
 
     //Importamos libreria
-    require_once "../clases/dataBase.php";
+    require_once __DIR__."/../clases/dataBase.php";
 
     if(isset($_POST["actualizar"])) {
 

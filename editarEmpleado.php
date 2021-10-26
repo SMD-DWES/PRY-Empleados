@@ -1,33 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/estilo.css">
-        <link rel="stylesheet" href="css/general.css">
-        <title>Inicio</title>
-    </head>
-    <body>
-        <h1>Modificación de empleado</h1>
-        <nav>
-            
-        </nav>
-        <aside>
-            <a href="index.php">Inicio</a>
-            <a href="altaEmpleado.php">Alta empleado</a>
-            <a href="listaEmpleados.php">Modificación de empleado</a>
-        </aside>
-        <main>
-            <?php
-                modificar();
-            ?>
-        </main>
-        <footer>
-
-        </footer>
-    </body>
-</html>
 
 <?php
     /*
@@ -36,6 +6,7 @@
 
         Descripción: Imprime en pantalla un formulario con los datos del empleado.
     */
+    require_once "cuerpoHtml.php";
 
     function modificar() {
         //Importamos libreria
@@ -73,3 +44,29 @@
         }
     }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estilo.css">
+        <link rel="stylesheet" href="css/general.css">
+        <title>Inicio</title>
+    </head>
+    <body>
+        <h1>Modificación de empleado</h1>
+        <?php
+            nav();
+            aside();
+        ?>
+        <main>
+            <?php
+                modificar();
+            ?>
+        </main>
+        <?php
+            footer();
+        ?>
+    </body>
+</html>

@@ -1,3 +1,21 @@
+<?php
+    /*
+        Autor: Sergio Matamoros Delgado
+        Fecha: 19/10/2021
+
+        Descripción: Imprime unos botones de confirmación para borrar un usuario.
+    */
+    require_once "cuerpoHtml.php";
+
+    function borrado() {
+        echo "<p>¿Seguro que deseas borrar al usuario con id $_GET[id]?</p>";
+
+        echo "<a href='procesos/borrar.php?id=$_GET[id]'><button>Sí</button></a>";
+        echo "<a href='listaEmpleados.php'><button>No</button></a>";
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -10,14 +28,10 @@
     </head>
     <body>
         <h1>Modificación de empleado</h1>
-        <nav>
-            
-        </nav>
-        <aside>
-            <a href="index.php">Inicio</a>
-            <a href="altaEmpleado.php">Alta empleado</a>
-            <a href="listaEmpleados.php">Modificación de empleado</a>
-        </aside>
+        <?php
+            nav();
+            aside();
+        ?>
         <main>
             <div id="borrado">
                 <?php
@@ -25,26 +39,8 @@
                 ?>
             </div>
         </main>
-        <footer>
-
-        </footer>
+        <?php
+            footer();
+        ?>
     </body>
 </html>
-
-<?php
-
-    /*
-        Autor: Sergio Matamoros Delgado
-        Fecha: 19/10/2021
-
-        Descripción: Imprime unos botones de confirmación para borrar un usuario.
-    */
-
-    function borrado() {
-        echo "<p>¿Seguro que deseas borrar al usuario con id $_GET[id]?</p>";
-
-        echo "<a href='procesos/borrar.php?id=$_GET[id]'><button>Sí</button></a>";
-        echo "<a href='listaEmpleados.php'><button>No</button></a>";
-    }
-
-?>

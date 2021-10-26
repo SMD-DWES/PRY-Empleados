@@ -5,7 +5,7 @@
 
         Descripción: Clase de consultas de bases de datos.
     */
-    require __DIR__."\metodosBd.php";
+    require __DIR__."/metodosBd.php";
     class Database extends MetodosBd{
 
         private $mysql = null;
@@ -25,6 +25,7 @@
             } else {
                 echo 'Hubo un error'.$this->mysql->error;
             }
+            $this->cerrarConex();
         }
 
         //Devuelve si hubo un error, si no, unicamente borra la fila.
@@ -32,6 +33,9 @@
             $sql = "DELETE FROM empleados WHERE IdEmpleado=".$id;
 
             //$this->consulta($sql);
+
+            $this->cerrarConex();
+
 
             if($this->mysql->query($sql))
                 return 'Correcto';

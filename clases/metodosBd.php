@@ -5,7 +5,7 @@
 
         Descripción: Clase para los metodos de SQL.
     */
-    require "..\config.php"; //Al ponerlo dentro del metodo funciona, fuera de la clase no.
+    require __DIR__."/../config.php"; //Al ponerlo dentro del metodo funciona, fuera de la clase no.
     class MetodosBd {
 
         private $mysql = null;

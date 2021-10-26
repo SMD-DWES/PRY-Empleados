@@ -7,8 +7,7 @@
     */
 
     //Importamos libreria
-    require_once "config.php";
-    require_once DIRECTORIO."clases/dataBase.php";
+    require_once "../clases/dataBase.php";
 
     if(isset($_POST["actualizar"])) {
 
@@ -27,7 +26,7 @@
         $db = new Database();
 
         //Actualiza en B.D, si hubo un error lo imprimirá.
-        echo $db->update($id,$dni,$nombre,$correo,$tlf);
+        $db->update($id,$dni,$nombre,$correo,$tlf);
 
         $db->cerrarConex();
 

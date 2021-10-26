@@ -8,7 +8,7 @@
     require_once "cuerpoHtml.php";
 
     function send() {
-        require_once "clases/dataBase.php";
+        require_once __DIR__."/clases/dataBase.php";
 
         if(isset($_POST["enviar"])) {
 
@@ -20,7 +20,7 @@
                 
                 $dni = $_POST["dni"];
                 $nombre = $_POST["nombre"];
-                $correo = (empty($_POST["correo"]) == 1) ? 'NULL' : $mail;
+                $correo = (empty($_POST["correo"]) == 1) ? 'NULL' : '"'.$_POST["correo"].'"';
                 $tlf = $_POST["telefono"];
 
                 $db->aniadirEmpleado($dni,$nombre,$correo,$tlf);

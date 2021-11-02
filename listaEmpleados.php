@@ -7,15 +7,13 @@
     */
 
     require "cuerpoHtml.php";
+    require_once __DIR__."/clases/dataBase.php";
 
     function listadoDatos() {
         
-        require("config.php");
 
         //Mostrar empleados con una tabla.
-
-        $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
-        $sql = null;
+        $db = new Database();
 
         //Búsquedas
         echo 'Búsqueda de empleado por DNI:';
@@ -27,14 +25,15 @@
         </form>';
         
 
+        $result = null;
 
         if(isset($_POST["buscar"]))
-            $sql = "SELECT * FROM empleados WHERE DNI LIKE'".$_POST["busquedaDNI"]."%'";
+            $result = $db->selectEmpleados("WHERE DNI LIKE '$_POST[busquedaDNI]%'");
+            //$sql = "SELECT * FROM empleados WHERE DNI LIKE'".$_POST["busquedaDNI"]."%'";
         else
-            $sql = "SELECT * FROM empleados";
-        $result = $mysql->query($sql);
-
-        
+            $result = $db->selectEmpleados();
+            //$sql = "SELECT * FROM empleados";
+        //$result = $mysql->query($sql);        
 
 
         //Tabla con contenido
@@ -46,7 +45,7 @@
         echo '<th>Tlfno</th>';
         echo '<th>Acciones</th>';
         echo '</tr>';
-        if($result->num_rows>0) {
+        if($result->num_rows > 0) {
             while($fila = $result->fetch_array(MYSQLI_ASSOC)) {
                 echo '<tr>';
                 echo '<td>'.$fila["DNI"].'</td>';
@@ -60,9 +59,13 @@
                 </td>';
                 echo '</tr>';
             }
+        } else {
+            echo '<tr>';
+            echo '<td colspan="5">No hay ningún empleado disponible</td>';
+            echo '<tr>';
+
         }
         echo '</table>';
-
     }
 ?>
 <!DOCTYPE html>
@@ -85,6 +88,7 @@
             <?php
                 listadoDatos();
             ?>
+            <a href="altaEmpleado.php"><button>Añadir empleado</button></a>
         </main>
         <?php
             footer();

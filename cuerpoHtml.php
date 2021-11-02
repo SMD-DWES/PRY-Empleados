@@ -10,9 +10,10 @@
     function aside() {
         echo '
             <aside>
-                <a href="index.php">Inicio</a>
+                <!--<a href="index.php">Inicio</a>-->
                 <a href="altaEmpleado.php">Alta empleado</a>
-                <a href="listaEmpleados.php">Modificación de empleado</a>
+                <a href="listaEmpleados.php">Listar empleados</a>
+                <a href="busqueda.php">Buscar empleados</a>
             </aside>
         ';
     }

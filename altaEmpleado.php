@@ -6,9 +6,10 @@
         Descripción: Da de alta un nuevo empleado.
     */
     require_once "cuerpoHtml.php";
+    require_once __DIR__."/clases/dataBase.php";
+
 
     function send() {
-        require_once __DIR__."/clases/dataBase.php";
 
         if(isset($_POST["enviar"])) {
 

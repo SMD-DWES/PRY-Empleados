@@ -9,25 +9,39 @@
     class MetodosBd {
 
         private $mysql = null;
+        //public $resultadoMetodo = null;
 
         function __construct()
         {
             $this->iniciar();
         }
 
+        /**
+         * 
+         */
         function iniciar() {
 
             $this->mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
             return $this->mysql;
         }
 
+        /**
+         * Devuelve el query
+         */
         function query($sql) {
            return $this->mysql->query($sql);
         }
 
+        /**
+         * Obsoleto.
+         */
         function numFilas() {
+            return $this->resultadoMetodo->num_rows;
         }
 
+        /**
+         * Cierra la conexión de mysqli
+         */
         function cerrarConex() {
             $this->mysql->close();
         }

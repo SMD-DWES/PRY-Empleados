@@ -9,7 +9,7 @@
     class Database extends MetodosBd{
 
         private $mysql = null;
-        private $metodos = null;
+        //private $metodos = null;
 
         function __construct() {
             //$this->metodos = new MetodosBd();
@@ -49,6 +49,24 @@
             if($this->mysql->query($sql))
                 return 'Correcto';
             return $this->mysql->error;
+        }
+
+        /**
+         * Devuelve la consulta, si hay una excepción devolverá el mensaje de error.
+         */
+        function selectEmpleados($where=null) {
+
+            $sql = null;
+            if($where == null)
+                $sql = "SELECT * FROM empleados";
+            else 
+                $sql = "SELECT * FROM empleados ".$where;
+
+            $result = $this->mysql->query($sql);
+            
+            if($result);
+                return $this->mysql->query($sql);
+            return $result->error;
         }
     }
 ?>

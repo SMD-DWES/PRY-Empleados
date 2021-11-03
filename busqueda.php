@@ -5,7 +5,6 @@
 
         Descripción: Lista en una tabla todos los empleados disponibles.
     */
-
     require "cuerpoHtml.php";
     require_once __DIR__."/clases/dataBase.php";
 
@@ -19,7 +18,12 @@
         echo 'Búsqueda de empleado por DNI:';
         echo 
         '<form action="#" method="post">
-            <input id="search" type="text" name="busquedaDNI"></input>
+            <select name="tipos">
+                <option value="dni">DNI</option>
+                <option value="name">Nombre</option>
+                <!--<option value="correo">Correo</option>-->
+            </select>
+            <input id="search" type="text" name="busqueda"></input>
             <input type="submit" value="Buscar" name="buscar"></input>
             <input type="submit" value="Resetear" name="reset"></input>
         </form>';
@@ -27,8 +31,20 @@
 
         $result = null;
 
-        if(isset($_POST["buscar"]))
-            $result = $db->selectEmpleados("WHERE DNI='$_POST[busquedaDNI]'");
+
+        if(isset($_POST["buscar"])) {
+            switch ($_POST["tipos"]) {
+                case 'dni':
+                    $result = $db->selectEmpleados("WHERE DNI='$_POST[busqueda]'");
+                    break;
+                case 'nombre':
+                    $result = $db->selectEmpleados("WHERE Nombre like '$_POST[busqueda]%'");
+                    break;
+                /*case 'correo':
+                    $result = $db->selectEmpleados("WHERE Nombre like '$_POST[busqueda]'%");
+                    break;*/
+            }
+        }
         /*else
             $result = $db->selectEmpleados();*/
 

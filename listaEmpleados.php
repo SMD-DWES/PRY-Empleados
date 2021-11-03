@@ -45,7 +45,7 @@
         echo '<th>Tlfno</th>';
         echo '<th>Acciones</th>';
         echo '</tr>';
-        if($result->num_rows > 0) {
+        if($db->numFilas($result) > 0) {
             while($fila = $result->fetch_array(MYSQLI_ASSOC)) {
                 echo '<tr>';
                 echo '<td>'.$fila["DNI"].'</td>';

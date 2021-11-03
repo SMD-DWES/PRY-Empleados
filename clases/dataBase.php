@@ -20,7 +20,7 @@
         function aniadirEmpleado($dni,$nombre,$correo,$tlfno) {
             
             $sql = 'INSERT INTO empleados (DNI,Nombre,Correo,Tlfno) VALUES("'.$dni.'","'.$nombre.'",'.$correo.',"'.$tlfno.'")';
-            if($this->query($sql)) {
+            if($this->consultar($sql)) {
                 echo 'Correcto';
             } else {
                 echo 'Hubo un error'.$this->mysql->error;
@@ -34,7 +34,7 @@
 
             //$this->consulta($sql);
 
-            if($this->mysql->query($sql))
+            if($this->consultar($sql))
                 echo 'Correcto';
             echo $this->mysql->error;
 
@@ -46,7 +46,7 @@
         function update($id, $dni, $nombre, $correo, $tlfno) {
             $sql = "UPDATE empleados SET DNI='$dni', Nombre='$nombre', Correo='$correo', Tlfno='$tlfno' WHERE IdEmpleado=$id";
 
-            if($this->mysql->query($sql))
+            if($this->consultar($sql))
                 return 'Correcto';
             return $this->mysql->error;
         }
@@ -62,10 +62,10 @@
             else 
                 $sql = "SELECT * FROM empleados $where";
 
-            $result = $this->mysql->query($sql);
+            $result = $this->consultar($sql);
             
             if($result);
-                return $this->mysql->query($sql);
+                return $this->consultar($sql);
             return $result->error;
         }
     }

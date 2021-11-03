@@ -22,8 +22,8 @@
                 <option value="nombre">Nombre</option>
                 <!--<option value="correo">Correo</option>-->
             </select>
-            <input id="search" type="text" placeholder="Buscar"  name="busqueda"></input>
-            <input type="submit" id="buscar" name="buscar"></input>
+            <input id="search" type="text" placeholder="Escriba aquí para buscar..." name="busqueda"></input>
+            <input type="submit" id="buscar" value="Buscar" name="buscar"></input>
             <input type="reset" name="reset" value="X"></input>
         </form>';
         

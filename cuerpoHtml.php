@@ -26,12 +26,12 @@
                 case "busqueda":
                     listadoDatos();
                     break;
-                case "editarEmpleado":
-                    modificar();
-                    break;
                 case "listaEmpleados":
                     listadoDatos();
                     echo '<a href="altaEmpleado.php"><button>Añadir empleado</button></a>';
+                    break;
+                case "editarEmpleado":
+                    modificar();
                     break;
                 case "borrarEmpleado":
                     echo '<div id="borrado">';

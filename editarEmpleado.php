@@ -10,20 +10,15 @@
     require_once __DIR__."/clases/dataBase.php";
 
     function modificar() {
-        //Importamos libreria
-        //require "config.php";
-
         if(isset($_GET["id"])) {
-            $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
-        
-            $sql = "SELECT * FROM empleados WHERE IdEmpleado=".$_GET["id"];
-        
-            $result = $mysql->query($sql);
-        
 
-            $fila = $result->fetch_array(MYSQLI_ASSOC);
+            $bd = new Database();
 
-            //Formulario con datos.
+            $result = $bd->selectEmpleados("WHERE IdEmpleado=$_GET[id]");
+
+            $fila = $bd->selectArray($result,MYSQLI_ASSOC);
+
+            //Rellenamos el formulario con los datos del empleado.
             echo 
             "
             <form action='procesos/editar.php?id=$_GET[id]' method='post'>
@@ -38,10 +33,6 @@
                 <input type='submit' value='Actualizar' name='actualizar[]'>
             </form>
             ";
-            
-
-            //$db->update($_GET["id"],$_GET["nombre"],$_GET["correo"],$_GET["tlfno"]);
-
         }
     }
 ?>
@@ -60,7 +51,7 @@
         <?php
             nav();
             aside();
-            main("editarEmpleado");        
+            main("editarEmpleado");
             footer();
         ?>
     </body>

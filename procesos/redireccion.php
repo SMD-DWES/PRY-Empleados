@@ -1,4 +1,10 @@
 <?php
+    /*  
+        Autor: Sergio Matamoros Delgado
+        Fecha: 19/10/2021
+
+        Descripción: Fichero que actualiza en la B.D los datos pasados.
+    */
     if(isset($_GET["op"])) {
         switch ($_GET["op"]) {
             case 'e':

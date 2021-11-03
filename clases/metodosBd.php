@@ -17,7 +17,8 @@
         }
 
         /**
-         * 
+         * Inicia una conexión con la BBDD y devuelve el objeto de mysqli.
+         * @return mysql -> Objeto mysqli.
          */
         function iniciar() {
 
@@ -28,15 +29,27 @@
         /**
          * Devuelve el query
          */
-        function query($sql) {
+        function consultar($sql) {
            return $this->mysql->query($sql);
+        }
+        
+        /**
+         * Devuelve una fila como resultado de un array de tipo asociativo, numerico o ambos ($tipo)
+         * @param result -> Resultado de un select
+         * @param tipo -> tipo de array (asociativo, num, etcétera.)
+         * @return -> Fila de la BBDD.
+         */
+        function selectArray($result, $tipo) {
+            return $result->fetch_array($tipo);
         }
 
         /**
-         * Obsoleto.
+         * Devuelve el número de filas a partir de un resultado pasado.
+         * @param result -> Resultado de un select
+         * @return -> Número de filas.
          */
-        function numFilas() {
-            return $this->resultadoMetodo->num_rows;
+        function numFilas($result) {
+            return $result->num_rows;
         }
 
         /**
@@ -45,6 +58,5 @@
         function cerrarConex() {
             $this->mysql->close();
         }
-
     }
 ?>

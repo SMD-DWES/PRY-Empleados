@@ -1,10 +1,11 @@
 body {
     width: 100%;/*Total: 1400px; width: 1200px; height 700px*/
-    height: 700px; /* Altura en px entre font-size */
+    height: 700px; /* Nota: Altura en px entre font-size */
+    /*max-width: 1400px;   */
+
 
     background-color: #222;
     color: white;
-
 
     font-size: 15px;
     margin: 10px;
@@ -21,8 +22,8 @@ nav {
     ===========================
 */
 aside {
-    width: 12.85%;/*180px;*/
-    height: 83.78%;/*620px;*/
+    width: 12.85714285714286%;/*(180*100/1400)  180px;*/
+    min-height: 88.57142857142857%;/*(620*100/700) 620px;*/
     background-color: #343331;
 
     padding-left: 1.42%;/*20px;*/
@@ -54,10 +55,10 @@ aside a:hover {
 
 /* Inserta el texto después del elemento */
 aside a:before {
-    content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
-    position: absolute;
+   /* content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
+    /*position: absolute;
     left: -10px;
-    transition: 0.5s;
+    transition: 0.5s;*/
 }
 
 main {

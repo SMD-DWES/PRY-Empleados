@@ -15,17 +15,16 @@
         $db = new Database();
 
         //Búsquedas
-        echo 'Búsqueda de empleado por DNI:';
         echo 
-        '<form action="#" method="post">
-            <select name="tipos">
+        '<form id="busquedaForm" action="#" method="post">
+            <select name="tipos" id="tipos">
                 <option value="dni">DNI</option>
-                <option value="name">Nombre</option>
+                <option value="nombre">Nombre</option>
                 <!--<option value="correo">Correo</option>-->
             </select>
-            <input id="search" type="text" name="busqueda"></input>
-            <input type="submit" value="Buscar" name="buscar"></input>
-            <input type="submit" value="Resetear" name="reset"></input>
+            <input id="search" type="text" placeholder="Buscar"  name="busqueda"></input>
+            <input type="submit" id="buscar" name="buscar"></input>
+            <input type="reset" name="reset" value="X"></input>
         </form>';
         
 
@@ -45,12 +44,10 @@
                     break;*/
             }
         }
-        /*else
-            $result = $db->selectEmpleados();*/
 
         //Tabla con contenido
         if($result != null) {
-            echo '<table>';
+            echo '<table id="busqueda">';
             echo '<tr>';
             echo '<th>DNI</th>';
             echo '<th>Nombre</th>';
@@ -96,13 +93,7 @@
         <?php
             nav();
             aside();
-        ?>
-        <main>
-            <?php
-                listadoDatos();
-            ?>
-        </main>
-        <?php
+            main("busqueda");
             footer();
         ?>
     </body>

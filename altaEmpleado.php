@@ -43,27 +43,10 @@
     </head>
     <body>
         <h1>Alta de empleado</h1>
-           <?php
-                nav();
-                aside();
-            ?>
-        <main>
-            <form action="#" method="post">
-                <label for="">DNI:</label>
-                <input type="text" name="dni" id="">
-                <label for="">Nombre:</label>
-                <input type="text" name="nombre" id="">
-                <label for="">Correo:</label>
-                <input type="text" name="correo" id="">
-                <label for="">Teléfono:</label>
-                <input type="text" name="telefono" id="">
-                <input type="submit" value="Enviar" name="enviar[]">
-            </form>
-            <?php
-                send();
-            ?>
-        </main>
         <?php
+            nav();
+            aside();
+            main("altaEmpleado");
             footer();
         ?>
     </body>

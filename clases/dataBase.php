@@ -60,7 +60,7 @@
             if($where == null)
                 $sql = "SELECT * FROM empleados";
             else 
-                $sql = "SELECT * FROM empleados ".$where;
+                $sql = "SELECT * FROM empleados $where";
 
             $result = $this->mysql->query($sql);
             

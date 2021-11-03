@@ -16,13 +16,13 @@
         $db = new Database();
 
         //Búsquedas
-        echo 'Búsqueda de empleado por DNI:';
+        /*echo 'Búsqueda de empleado por DNI:';
         echo 
         '<form action="#" method="post">
             <input type="text" name="busquedaDNI"></input>
             <input type="submit" value="Buscar" name="buscar"></input>
             <input type="submit" value="Resetear" name="reset"></input>
-        </form>';
+        </form>';*/
         
 
         $result = null;
@@ -83,14 +83,7 @@
         <?php
             nav();
             aside();
-        ?>
-        <main>
-            <?php
-                listadoDatos();
-            ?>
-            <a href="altaEmpleado.php"><button>Añadir empleado</button></a>
-        </main>
-        <?php
+            main("listaEmpleados");
             footer();
         ?>
     </body>

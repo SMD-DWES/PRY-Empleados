@@ -7,10 +7,11 @@
         Descripción: Imprime en pantalla un formulario con los datos del empleado.
     */
     require_once "cuerpoHtml.php";
+    require_once __DIR__."/clases/dataBase.php";
 
     function modificar() {
         //Importamos libreria
-        require "config.php";
+        //require "config.php";
 
         if(isset($_GET["id"])) {
             $mysql = new mysqli(MYSQL_HOST,MYSQL_USER,MYSQL_PASSWORD,MYSQL_DATABASE);
@@ -59,13 +60,7 @@
         <?php
             nav();
             aside();
-        ?>
-        <main>
-            <?php
-                modificar();
-            ?>
-        </main>
-        <?php
+            main("editarEmpleado");        
             footer();
         ?>
     </body>

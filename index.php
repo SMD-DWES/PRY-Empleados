@@ -16,11 +16,7 @@
         <?php
             nav();
             aside();
-        ?>
-        <main>
-            <h2>Panel principal.</h2>
-        </main>
-        <?php
+            main();
             footer();
         ?>
     </body>

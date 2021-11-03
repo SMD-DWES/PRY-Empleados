@@ -1,7 +1,15 @@
+/*
+    Autor: Sergio Matamoros Delgado <smatamorosdelgado.guadalupe@alumnado.fundacionloyola.net>
+    Fecha: 3/11/2021
+    Licencia: GPL v3
+    Descripción: Fichero con contenido general del CSS
+*/
+
 * {
     margin: 0px;
     padding: 0px;
 }
+
 body {
     width: 100%;/*Total: 1400px; width: 1200px; height 700px*/
     height: 700px; /* Nota: Altura en px entre font-size */
@@ -12,11 +20,10 @@ body {
     color: white;
 
     font-size: 15px;
-    margin: 10px;
 }
 
 nav {
-    min-height: 8.10%; /*60px*/
+    min-height: 8.571428571428571%; /*(60*100/700) 60px*/
     background-color: #44423d;
 }
 
@@ -30,7 +37,7 @@ aside {
     min-height: 88.57142857142857%;/*(620*100/700) 620px;*/
     background-color: #343331;
 
-    padding-left: 1.42%;/*20px;*/
+    padding-left: 1.428571428571429%;/*(20*100/1400)20px;*/
     font-size: 17px;
 
     display:flex;
@@ -59,16 +66,16 @@ aside a:hover {
 
 /* Inserta el texto después del elemento */
 aside a:before {
-   /* content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
-    /*position: absolute;
+    content: '\00bb'; /* Código del texto a poner 00bb representa: '>>' */
+    position: absolute;
     left: -10px;
-    transition: 0.5s;*/
+    transition: 0.5s;
 }
 
 main {
-    padding: 0 1.42% 0 1.42%;/*0 20px 0 20px;*/
+    padding: 0 1.428571428571429% 0 1.428571428571429%;/*(20*100/1160) 0 20px 0 20px;*/
     min-width: 82.85714285714286%;/*1160px;*/
-    min-height: 83.78%;/*620px;*/
+    min-height: 88.57142857142857%;/*620px;*/
 
     color: black;
 
@@ -79,7 +86,7 @@ main {
 
 footer {
     clear: left;
-    min-height: 8.10%;/*60px;*/
+    min-height: 8.571428571428571%;/*(60*100/700) 60px;*/
     background-color: #44423d;
     
 }

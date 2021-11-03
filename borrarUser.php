@@ -31,15 +31,7 @@
         <?php
             nav();
             aside();
-        ?>
-        <main>
-            <div id="borrado">
-                <?php
-                    borrado();
-                ?>
-            </div>
-        </main>
-        <?php
+            main("borrarEmpleado");
             footer();
         ?>
     </body>

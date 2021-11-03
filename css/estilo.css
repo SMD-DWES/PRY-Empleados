@@ -1,3 +1,9 @@
+/*
+    Autor: Sergio Matamoros Delgado <smatamorosdelgado.guadalupe@alumnado.fundacionloyola.net>
+    Fecha: 3/11/2021
+    Licencia: GPL v3
+    Descripción: Fichero con contenido general del CSS
+*/
 
 /*
     ===========================
@@ -5,7 +11,7 @@
     ===========================
 */
 table, td, th {
-    margin: auto;
+    margin: 30px auto;
     border: 2px solid black;
     border-collapse: collapse;
     color: black;
@@ -35,17 +41,79 @@ a button#borrar {
             FORMS
     ===========================
 */
+form#busquedaForm {
+    margin: 30px 0 50px 0;
+    width: 480px;
+    height: 50px;
+}
+#tipos {
+    float: left;
+    margin: 0;
+    background-color: #2b303b;
+    color: white;
+    width: 80px;
+    height: 50px;
+
+    border-radius: 1px;
+
+}
 
 #search {
-    background: transparent;
-    border-radius: 1.5em;
-    box-shadow: 0 0 0 0.4em #171717 inset;
-    padding: 0.75em;
-    transform: translate(0.5em,0.5em) scale(0.5);
-    transform-origin: 100% 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    width: 300px;
+    height: 50px;
+    background-color: #2b303b;
+    border: none;
+    font-size: 10pt;
+    float: left;
+    color: #262626;
+    padding-left: 15px;
+    border-radius: 1px;
+    color: #fff;
+    margin:0px;
+
+}
+
+#buscar {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-radius: 1px;
+
+    border: none;
+    background-color: #232833;
+    height: 50px;
+    width: 50px;
+    color: #4f5b66;
+    font-size: 10pt;
+
+    margin:0px;
+    float: left;
+
+
+    transition: all .55s ease;
+}
+
+#buscar:hover,form input[type="reset"]:hover {
+    background-color: white;
+
+}
+
+form input[type="reset"] {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    float: left;
+
+    border: none;
+    background-color: #232833;
+    height: 50px;
+    width: 50px;
+    color: red;
+    font-weight: bold;
+    font-size: 10pt;
+
+    margin:0px;
+
+    transition: all .55s ease;
 }
 
 form input[type=text], select {
@@ -64,4 +132,9 @@ form input[type=text], select {
     padding-top: 20px;
     text-align: center;
     color: white;
+}
+
+#busqueda {
+    clear: left;
+    margin-top: 70px;
 }

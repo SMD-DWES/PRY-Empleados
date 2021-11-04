@@ -53,6 +53,8 @@
 
         /**
          * Devuelve la consulta, si hay una excepción devolverá el mensaje de error.
+         * @param where -> Parámetro con la condición (WHERE) para el SQL.
+         * @return -> Devuelve la fila, si no es así, devuelve un error.
          */
         function selectEmpleados($where=null) {
 
@@ -61,6 +63,34 @@
                 $sql = "SELECT * FROM empleados";
             else 
                 $sql = "SELECT * FROM empleados $where";
+
+            $result = $this->consultar($sql);
+            
+            if($result);
+                return $this->consultar($sql);
+            return $result->error;
+        }
+
+        //Funciones que sobrecargan la pila y no sirven para na'
+        
+        function selectDNI($dni) {
+
+            $sql = null;
+            
+            $sql = "SELECT * FROM empleados WHERE DNI = $dni";
+
+            $result = $this->consultar($sql);
+            
+            if($result);
+                return $this->consultar($sql);
+            return $result->error;
+        }
+
+        function selectNombre($nombre) {
+
+            $sql = null;
+           
+            $sql = "SELECT * FROM empleados WHERE Nombre LIKE '$nombre'";
 
             $result = $this->consultar($sql);
             

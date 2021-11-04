@@ -28,22 +28,34 @@
         </form>';
         
 
+        //Variable que contiene la fila del SQL, si es NULL significa que 
+        //el usuario NO a buscado todavía nada.
         $result = null;
+
+        //El tipo es para comprobar que si busco por DNI no utilice un while
+        //y si es por nombre (que pueden haber varios iguales) utilice un while
+        $tipo = null;
 
 
         if(isset($_POST["buscar"])) {
             switch ($_POST["tipos"]) {
                 case 'dni':
-                    $result = $db->selectEmpleados("WHERE DNI='$_POST[busqueda]'");
+                    //$result = $db->selectEmpleados("WHERE DNI='$_POST[busqueda]'"); <- la buena
+                    $result = $db->selectDNI("$_POST[busqueda]");
+                    $tipo = "dni";
                     break;
                 case 'nombre':
-                    $result = $db->selectEmpleados("WHERE Nombre like '$_POST[busqueda]%'");
+                    //$result = $db->selectEmpleados("WHERE Nombre like '%$_POST[busqueda]%'"); <- la buena
+                    $result = $db->selectNombre("%$_POST[busqueda]%");
+                    $tipo = "nombre";
                     break;
                 /*case 'correo':
                     $result = $db->selectEmpleados("WHERE Nombre like '$_POST[busqueda]'%");
                     break;*/
             }
         }
+
+        
 
         //Tabla con contenido
         if($result != null) {
@@ -55,8 +67,13 @@
             echo '<th>Tlfno</th>';
             echo '<th>Acciones</th>';
             echo '</tr>';
-            if($result->num_rows > 0) {
-                while($fila = $result->fetch_array(MYSQLI_ASSOC)) {
+            if($db->numFilas($result) > 0) {
+                //Si la busqueda es por DNI, entonces NO utilizo el while en fetchArray
+                if($tipo=="dni")
+                    $fila = $db->selectArray($result,MYSQLI_ASSOC);
+                else if($tipo == "nombre")
+                //Si la busqueda es por nombre (se pueden repetir datos), utilizo un while para recorrer. 
+                while($fila = $db->selectArray($result, MYSQLI_ASSOC)) {
                     echo '<tr>';
                     echo '<td>'.$fila["DNI"].'</td>';
                     echo '<td>'.$fila["Nombre"].'</td>';

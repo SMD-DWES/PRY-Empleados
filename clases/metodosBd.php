@@ -32,6 +32,13 @@
         function consultar($sql) {
            return $this->mysql->query($sql);
         }
+
+        /*
+            Prepara una consulta
+        */
+        function prepararConsulta($consulta) {
+            return $this->mysql->prepare($consulta);
+        }
         
         /**
          * Devuelve una fila como resultado de un array de tipo asociativo, numerico o ambos ($tipo)

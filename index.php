@@ -14,7 +14,10 @@
     <body>
         <h1>Panel de administración - INICIO</h1>
         <?php
-            nav();
+            //Si estas logueado cambia el nav
+            session_start();
+            if(isset($_SESSION["id"])) navLogged();
+            else nav();
             aside();
             main();
             footer();

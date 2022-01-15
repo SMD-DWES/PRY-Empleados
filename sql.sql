@@ -10,3 +10,13 @@ CREATE TABLE Empleados(
     Tlfno char(9) NOT NULL
 
 );
+
+CREATE TABLE accounts (
+  `idCuenta` smallint(6) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  `apellido` varchar(50) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `pw` varchar(70) NOT NULL,
+  PRIMARY KEY (`idCuenta`),
+  UNIQUE KEY `nombre` (`nombre`)
+)

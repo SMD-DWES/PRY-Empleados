@@ -3,10 +3,24 @@
         echo 
         '
             <nav>
-                <h1>NAV</h1>
+                <a href="#">Inicio</a>
+                <a href="#">Quienes somos</a>
+                <a class="login" href="login.php">Iniciar sesión</a>
+            </nav>
+        ';
+    }    
+    function navLogged() {
+        echo 
+        '
+            <nav>
+                <a href="#">Inicio</a>
+                <a href="#">Quienes somos</a>
+                <a href="#">Gestión empleados</a>
+                <a class="login" href="procesos/logout.php">Cerrar sesión</a>
             </nav>
         ';
     }
+    
     function aside() {
         echo '
             <aside>
